@@ -1,56 +1,23 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Informasi</title>
-    <style>
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            padding: 40px; 
-            text-align: center; 
-        }
-        #hasil { 
-            margin-top: 20px; 
-            padding: 20px; 
-            border: 1px solid #ddd; 
-            border-radius: 8px; 
-            background: #f9f9f9; 
-            display: inline-block;
-        }
-        .loading {
-            color: #666;
-            font-style: italic;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sistem Informasi</title>
+  <link rel="icon" href="https://drive.google.com/file/d/1ApbjlJnECGIPKrEc__rEUvB4hzQhKN-S/view?usp=sharing" />
+  
 </head>
 <body>
-
-    <!-- Menampilkan teks loading sebelum data masuk -->
-    <div id="hasil" class="loading">Menghubungkan ke server... mohon tunggu.</div>
-
-    <script>
-        // URL Apps Script Anda sudah dimasukkan
-        const urlAppsScript = "https://script.google.com/macros/s/AKfycbxuuSBa1DoN56D-2333qemaQqQpYgN0gcC2RxnMenDZu7u8d8Q5nVjeRqTsEuSJmjJq/exec";
-
-        // Menjalankan fungsi otomatis saat halaman selesai dimuat
-        window.onload = function() {
-            const divHasil = document.getElementById('hasil');
-
-            // Mengambil data dari Apps Script menggunakan fetch
-            fetch(urlAppsScript)
-                .then(response => response.json())
-                .then(data => {
-                    // Hapus efek teks loading dan tampilkan data
-                    divHasil.classList.remove('loading');
-                    divHasil.innerHTML = `<strong>Status:</strong> ${data.status} <br><br> <strong>Pesan:</strong> ${data.pesan}`;
-                })
-                .catch(error => {
-                    divHasil.classList.remove('loading');
-                    divHasil.innerHTML = `<span style="color:red;">Gagal mengambil data. Pastikan file ini sudah di-hosting secara online (bukan dibuka langsung dari folder komputer).</span>`;
-                    console.error('Error:', error);
-                });
-        }
-    </script>
+  <div class="iframe-container">
+    <iframe
+      id="app"
+      src="https://script.google.com/macros/s/AKfycbxuuSBa1DoN56D-2333qemaQqQpYgN0gcC2RxnMenDZu7u8d8Q5nVjeRqTsEuSJmjJq/exec"
+      scrolling="yes"
+      allowfullscreen="true"
+      webkitallowfullscreen="true"
+      mozallowfullscreen="true"
+      allow="fullscreen; camera; microphone; display-capture; geolocation;">
+    </iframe>
+  </div>
 </body>
 </html>
